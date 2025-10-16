@@ -9,11 +9,29 @@ type TIcon =
     | "user"
  
 interface IButtonProps{
+    /**
+     * Вариант визуального отображения кнопки
+     */
     mode?: "primary" | "secondary";
+    /**
+     * Текст
+     */
     text?: string;
+    /**
+     * Неактивное состояние кнопки
+     */
     disabled?: boolean;
+    /**
+     * Размер
+     */
     size?: "small" | "medium";
+    /**
+     * Иконка перед текстом
+     */
     iconBefore?: TIcon;
+    /**
+     * Иконка после текстом
+     */
     iconAfter?: TIcon;
 }
 
@@ -105,7 +123,9 @@ ${(props)=> props.size==="medium" && `
 
 
 
-
+/**
+ * Кнопка
+ */
 export const Button = ({
     text="Button",
     disabled,
@@ -119,6 +139,6 @@ export const Button = ({
         <StyledButton disabled={disabled} mode={mode} size={size}>
             {iconBefore ? <Icon iconName={iconBefore} size={size=== "medium" ? 20 : 16} /> : null}
             {text}
-            {iconBefore ? <Icon iconName={iconAfter} size={size=== "medium" ? 20 : 16} /> : null}
+            {iconAfter ? <Icon iconName={iconAfter} size={size=== "medium" ? 20 : 16} /> : null}
         </StyledButton>)
 };
